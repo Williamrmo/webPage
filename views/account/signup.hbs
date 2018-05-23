@@ -1,0 +1,40 @@
+<header>
+    <div>
+        <h1>home</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href=".././">Home</a>
+                </li>
+                <li>
+                    <a href="./account">Login</a>
+                </li>
+                <li>
+                    <a href="">Signup</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="form">
+    <form action="/api/signup" method="post">
+
+        <label for="displayName">Name</label>
+        <input type="text" name="displayName" id="displayName" value="" placeholder="tu nombre" class="formData">
+        <br /><br />
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" value="" placeholder="username" class="formData">
+        <br /><br />
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value="" placeholder="Tu Email" class="formData">
+        <br /><br />
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" value="" placeholder="password" class="formData">
+        <br /><br />
+        <label for="password">Password confirmation</label>
+        <input type="password" name="password_confirmation" id="password" value="" placeholder="confirma tu password" class="formData">
+        <br /><br />
+        <input type="submit" value="Singup" class="btn"></input>
+    </form>
+</div>

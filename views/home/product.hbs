@@ -1,27 +1,3 @@
-<div>
-    <ul>
-        <li>
-            <a href="">Home</a>
-        </li>
-        <li>
-            <a href="">Blog</a>
-        </li>
-        <li>
-            <a href="">Shop</a>
-        </li>
-    </ul>
-</div>
-
-<div>
-    <ul>
-        <li>
-            <a href="">Login</a>
-        </li>
-        <li>
-            <a href="">Signin</a>
-        </li>
-    </ul>
-</div>
 <script type="text/javascript">
     let productList = document.createElement('ul')
 
@@ -33,7 +9,7 @@
         headers: myHeaders
     })
         .then(res => res.json())
-        .then(data => {
+        .then(data => console.log(data) {
             data.products.map(product => {
                 let text = document.createTextNode(product.name)
                 let elem = document.createElement('li')

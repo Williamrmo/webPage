@@ -1,0 +1,92 @@
+<header>
+    <div>
+        <div class="header">
+            <h1>home</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="./">Home</a>
+                    </li>
+                    <li>
+                        <a href="./blog">Blog</a>
+                    </li>
+                    <li>
+                        <a href="./shop">Shop</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="wrap">
+    <div class="slider">
+        <input type="button" value="<" onclick="prev()" class="btn_top">
+        <img src="https://farm1.staticflickr.com/961/28412120268_e11ef4699d_b.jpg" id="slider" />
+        <input type="button" value=">" onclick="next()" class="btn_botton">
+    </div>
+    
+    <article id="products">
+
+    </article>
+    <aside>
+        <div class="account">
+            <ul>
+                <li>
+                    <a href="../account">Login</a>
+                </li>
+                <br />
+                <li>
+                    <a href="../account/signup">Signup</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+</div>
+<script>
+    var img = ["https://farm1.staticflickr.com/961/28412120268_e11ef4699d_b.jpg",
+            "https://farm1.staticflickr.com/893/40478590280_cd1000d160_b.jpg",
+            "https://farm1.staticflickr.com/889/42238726152_b560618fa9_b.jpg"];
+    var num = 0;
+
+    function next() {
+        var slider = document.getElementById("slider");
+
+        num++;
+        if (num >= img.length) {
+            num = 0;
+        }
+        slider.src = img[num];
+    }
+
+    function prev() {
+        var slider = document.getElementById("slider");
+
+        num--;
+        if (num < 0) {
+            num = img.length - 1;
+        }
+        slider.src = img[num];
+    }
+    
+    const products = document.getElementById('products')
+    let productList = document.createElement('ul')
+    const myHeaders = new Headers();
+
+    myHeaders.append('authorization', `Bearer ${localStorage.token}`)
+
+    fetch('/api/product', {
+        method: 'GET',
+        headers: myHeaders
+    })
+    .then(res => res.json())
+    .then(data => console.log(data) {
+        data.products.map(product => {
+            let text = document.createTextNode(product.name)
+            let elem = document.createElement('li')
+            elem.appendChild(text)
+            productList.appendChild(elem)
+        })
+
+    document.body.products.appendChild(productList)
+    })
+</script>
