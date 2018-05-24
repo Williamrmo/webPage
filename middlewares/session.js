@@ -1,4 +1,4 @@
-'use strict'
+/*'use strict'
 
 const User = require("../models/user.js").User
 
@@ -17,4 +17,4 @@ module.exports = function (req, res, next) {
             }
         })
     }
-}
+}*/

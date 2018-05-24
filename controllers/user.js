@@ -14,7 +14,7 @@ function signUp(req, res) {
     user.save((err) => {
         if (err) return res.status(500).send({ message: `Error al crear el usuario: ${err}` })
 
-        return res.redirect('/').status(201).send({ token: service.createToken(user) })
+        return res.redirect(302, '/').send({ token: service.createToken(user) })
     })
 }
 
@@ -24,7 +24,7 @@ function signIn(req, res) {
         if (!user) return res.status(404).send({ message: 'No existe el usuario' })
 
         req.user = user
-        res.redirect('/').status(200).send({
+        res.redirect(302, '/').send({
             message: 'Te has logueado correctamente',
             token: service.createToken(user)
         })
